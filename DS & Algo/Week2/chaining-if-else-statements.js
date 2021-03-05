@@ -1,7 +1,6 @@
 // Chaining If Else Statements
 
 function testSize(num) {
-    // Only change code below this line
   if(num<5){
     return "Tiny";
   }else if(num >4 && num<10){
