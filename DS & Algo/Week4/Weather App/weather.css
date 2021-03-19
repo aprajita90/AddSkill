@@ -1,0 +1,35 @@
+body{
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+  }
+  .text-center{
+    text-align: center;
+  }
+  #fahrTemp{
+    cursor:pointer;
+    color:#090d11;
+    text-align: center;
+    background: center;
+  }
+  #city{
+    cursor:pointer;
+    color:black;
+  }
+  #weatherType{
+    text-align: center;
+    cursor:pointer;
+    color:black;
+  }
+  .btn{
+    border-radius: 5px;
+    background-color:white;
+    float: center;
+  }
+  #windSpeed{
+    text-align: center;
+    cursor:pointer;
+    color:black;
+  }
+  
