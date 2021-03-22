@@ -37,19 +37,19 @@ for (var i=0;i<t.length;i++){
   }
 }
 
-// var hover=document.querySelectorAll(".panel-primary");
-// hover.forEach(div=>{
-//     div.addEventListener("mouseover",()=>{
-//             div.style.backgroundColor="#b4b4f1";
-//     })
-// })
-// var nohover=document.querySelectorAll(".panel-primary");
-// console.log(nohover)
-// nohover.forEach(div=>{
-//     div.addEventListener("mouseout",()=>{
-//         div.style.backgroundColor="";
-//     })
-// })
+var hover=document.querySelectorAll(".panel-primary");
+hover.forEach(div=>{
+    div.addEventListener("mouseover",()=>{
+            div.style.backgroundColor="#b4b4f1";
+    })
+})
+var nohover=document.querySelectorAll(".panel-primary");
+console.log(nohover)
+nohover.forEach(div=>{
+    div.addEventListener("mouseout",()=>{
+        div.style.backgroundColor="";
+    })
+})
 
 function vegeSelect(chnge){
   if (chnge.value =="fruits"){
