@@ -8,44 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script>
-    function ValidateEmail(inputText)
-    {
-      var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if(inputText.value.match(mailformat))
-      {
-        //alert("Valid email address!");
-        document.getElementById('border').style.borderColor = "initial"
-        document.form.text.focus();
-        return true;
-      }
-      else
-      {
-        //alert("You have entered an invalid email address!");
-        document.getElementById('border').style.borderColor = "red"
-        document.form.text.focus();
-        return false;
-      }
-    }
-  //   function myFunction(){
-  //     var input, filter, table, tr, td, i, txtValue;
-  //     input = document.getElementById("myInput");
-  //     filter = input.value.style;
-  //     heading = document.getElementsByClassName("panel-heading");
-  //     data = document.getElementsByClassName("panel panel-primary");
-  //     for (i = 0; i < input.length; i++) {
-  //       head = heading[i].getElementsByClassName("panel-heading")[0];
-  //       if (head) {
-  //         txtValue = head.textContent || head.innerText;
-  //         if (txtValue.indexOf(filter) > -1) {
-  //          data.style.display = "";
-  //         } else {
-  //           data.style.display = "none";
-  //         }
-  //   }       
-  //   }
-  // }
-  </script>
+  <script src="ecommerceOnlineStore.js"></script>
   <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */
     .navbar {
@@ -65,8 +28,9 @@
     }
     #addItems {
       float:right;
+      position:relative;
     }
-    #myInput{
+    #search{
       margin: 5px;
       padding: 8px;
       border-radius: 10px;
@@ -76,9 +40,9 @@
       padding:8px;
       border-radius: 10px;
     }
-    .panel-body:hover{
+    .panel-primary:hover{
       background-color: #b4b4f1;
-    }
+    } 
   </style>
 </head>
 
@@ -102,91 +66,91 @@
           <li><a href="#">Deals</a></li>
           <li><a href="#">Stores</a></li>
           <li><a href="#">Contact</a></li>
-          <li><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Veggies names.." title="Type in a name"></li>
+          <li><input type="text" id="search" onkeyup="searchVeges()" placeholder="Search names..." title="Type in a name"></li>
         </ul>
-        <select name="" id="selectName">
+        <select name="item" id="selectName" onchange="vegeSelect(this)">
           <option value="">Select the name</option>
-          <option value="">Fruits</option>
-          <option value="">Vegetables</option>
+          <option value="fruits">Fruits</option>
+          <option value="vegetables">Vegetables</option>
         </select>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+          <li><a href="#cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container" id="vegetables">
     <div class="row">
       <div id="tomatoDiv" class="col-sm-4">
         <div class="panel panel-primary ">
-          <div class="panel-heading">Tomatoes </div>
+          <div class="panel-heading"><span class="title">Tomatoe's</span> </div>
           <div class="panel-body"><img src="cart Images/tomato.jpg" class="img-responsive"
               style="width:100%; height: 250px;" alt="Image"></div>
           <div class="panel-footer">
             <button id="tomatoButton" type="button" class="btn btn-primary">Buy Tomato's</button>
-            <button id="addItems" type="button" class="btn btn-primary">Add Items to Cart</button>
+            <button id="addItems" type="button" class="btn btn-primary" onclick="countCart()">Add Items to Cart</button>
           </div>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="panel panel-primary">
-          <div class="panel-heading">Cucumber's</div>
+          <div class="panel-heading"><span class="title">Cucumber's</span></div>
           <div class="panel-body"><img src="cart Images/cucumber.jpg" class="img-responsive"
               style="width:100%;  height: 250px;" alt="Image"></div>
           <div class="panel-footer">
             <button id="cucumberButton" type="button" class="btn btn-primary">Buy Cucumber's</button>  
-            <button id="addItems" type="button" class="btn btn-primary">Add Items to Cart</button>
+            <button id="addItems" type="button" class="btn btn-primary" onclick="countCart()">Add Items to Cart</button>
         </div>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="panel panel-primary">
-          <div class="panel-heading" name="veggies">Chilli's</div>
+          <div class="panel-heading"><span class="title">Chilli's</span></div>
           <div class="panel-body"><img src="cart Images/chilli.jpg" class="img-responsive"
               style="width:100%; height: 250px" alt="Image"></div>
           <div class="panel-footer">
             <button id="chilliButton" type="button" class="btn btn-primary">Buy Chilli's</button>
-            <button id="addItems" type="button" class="btn btn-primary">Add Items to Cart</button>
+            <button id="addItems" type="button" class="btn btn-primary" onclick="countCart()">Add Items to Cart</button>
         </div>
         </div>
       </div>
     </div>
   </div><br>
 
-  <div class="container">
+  <div class="container" id= "fruits">
     <div class="row">
       <div class="col-sm-4">
         <div class="panel panel-primary ">
-          <div class="panel-heading">Strawberry's </div>
+          <div class="panel-heading"><span class="title">Strawberry's</span></div>
           <div class="panel-body"><img id="strawberyImg" src="cart Images/strawbery.jpg" class="img-responsive"
               style="width:100%; height: 250px;" alt="Image"></div>
           <div class="panel-footer">
             <button id="strawberryButton" type="button" class="btn btn-primary"> Buy Strawberry's</button>
-            <button id="addItems" type="button" class="btn btn-primary">Add Items to Cart</button>
+            <button id="addItems" type="button" class="btn btn-primary" onclick="countCart()">Add Items to Cart</button>
         </div>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="panel panel-primary">
-          <div class="panel-heading">Mango's</div>
+          <div class="panel-heading"><span class="title">Mango's</span></div>
           <div class="panel-body"><img src="cart Images/mango.jpg" class="img-responsive"
               style="width:100%;  height: 250px;" alt="Image"></div>
           <div class="panel-footer">
             <button id="mangoButton" type="button" class="btn btn-primary">Buy Mango's</button>   
-            <button id="addItems" type="button" class="btn btn-primary">Add Items to Cart</button>
+            <button id="addItems" type="button" class="btn btn-primary" onclick="countCart()">Add Items to Cart</button>
         </div>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="panel panel-primary">
-          <div class="panel-heading">Pineapple's</div>
+          <div class="panel-heading"><span class="title">Pineapple's</span></div>
           <div class="panel-body"><img src="cart Images/pineapple.jpg" class="img-responsive"
               style="width:100%; height: 250px" alt="Image"></div>
           <div class="panel-footer">
-            <button id=pineappleButton" type="button" class="btn btn-primary">Buy Pineapple's</button>  
-            <button id="addItems" type="button" class="btn btn-primary">Add Items to Cart</button>
+            <button id="pineappleButton" type="button" class="btn btn-primary">Buy Pineapple's</button>  
+            <button id="addItems" type="button" class="btn btn-primary" onclick="countCart()">Add Items to Cart</button>
         </div>
         </div>
       </div>

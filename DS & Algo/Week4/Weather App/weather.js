@@ -9,7 +9,7 @@ $(document).ready(function(){
     $.getJSON(api, function(data1){
       var fahrTemp;
       var celsTemp;
-      var ktemp;
+      var ktemp;               
       var tempSwap = true;
       var weatherType = data1.weather[0].description;
       kTemp = data1.main.temp;
