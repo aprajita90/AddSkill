@@ -33,13 +33,13 @@ $(document).ready(function(){
       windSpeed = (2.237*(windSpeed)).toFixed(1);
       $("#windSpeed").html(windSpeed + " mph");
       if(fahrTemp>80){
-        $('body').css('background-image', 'url(https://cdn.civitatis.com/guias/dublin/fotos/phoenix-park.jpg)');
+       // $('body').css('background-image', 'url(https://cdn.civitatis.com/guias/dublin/fotos/phoenix-park.jpg)');
       }else if(fahrTemp>70){
-        $('body').css('background-image', 'url(http://www.buckfieldwestport.com/images/lettermagheerawalk.jpg)');
+        //$('body').css('background-image', 'url(http://www.buckfieldwestport.com/images/lettermagheerawalk.jpg)');
       }else if(fahrTemp>60){
-        $('body').css('background-image', 'url(http://static.freepik.com/photos-libre/doolough--co--mayo--irlande_21186276.jpg)')
+        //$('body').css('background-image', 'url(http://static.freepik.com/photos-libre/doolough--co--mayo--irlande_21186276.jpg)')
       }else if(fahrTemp>50){
-        $('body').css('background-image', 'url(http://photo.accuweather.com/photogallery/2009/12/1024/3dc21a82a.jpg)');
+       // $('body').css('background-image', 'url(http://photo.accuweather.com/photogallery/2009/12/1024/3dc21a82a.jpg)');
       }   
     });
     
