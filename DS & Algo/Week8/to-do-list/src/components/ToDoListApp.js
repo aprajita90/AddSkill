@@ -16,8 +16,6 @@ class todoListApp extends Component {
             taskName: event.target.value
         })
     }
-
-    
    
     componentDidMount() {
 
