@@ -3,8 +3,8 @@ import Axios from 'axios';
 import "./index.css"
 
 class todoListApp extends Component {
-    constructor (props) {
-        super (props);
+    constructor () {
+        super ()
         this.state = {
             name: "TodoList",
             todos:[]
@@ -16,6 +16,8 @@ class todoListApp extends Component {
             taskName: event.target.value
         })
     }
+
+    
    
     componentDidMount() {
 
@@ -40,8 +42,8 @@ class todoListApp extends Component {
         return(
             <div>
             <h1> {name} </h1>
-            <button onClick={this.fetchTasks}> AddFetch </button>
-            <ul>
+            <div>
+            <ul><br></br><br></br>
                 {todos.map((todo)=>{
                     return (
                     <div key={todo.id}>
@@ -49,20 +51,23 @@ class todoListApp extends Component {
                         <li style={{color:'green'}}>
                     {todo.title}
                     <span className="marker">
-                        <input className="checked-box" type="checkbox" checked={todo.completed} />
+                        <input className="checked-box" type="checkbox" checked={todo.completed} onChange={this.fetchTasks} onChange={this.fetchTasks} />
                     </span>
                     </li>
                     ):(<li style={{color:'red'}}>
                     {todo.title}
                     <span className="marker">
-                        <input className="checked-box" type="checkbox" checked={todo.completed} />
+                        <input className="checked-box" type="checkbox" checked={todo.completed} onChange={this.fetchTasks} onChange={this.fetchTasks} />
                     </span>
-                    </li>)}
-                    
+                    </li>)}    
                     </div>
                     )
                 })}
-            </ul>    
+            </ul>
+            <div>
+            <button onClick={this.fetchTasks}> AddFetch </button> 
+            </div>
+            </div>  
             </div>
         )
     }
